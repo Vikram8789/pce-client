@@ -1,0 +1,43 @@
+#home{
+    height: 92vh;
+}
+.descriptionHero{
+    color:white;
+}
+.descriptionHero h1{
+    text-align: left;
+}
+.contant h1{
+    font-size: 3.5rem !important;
+}
+.heroImage{
+    height: 80vh;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+/* Auth */
+#auth{
+    height: 100vh;
+    
+}
+.borderSet{
+    height: 3px;
+    border-radius: 10px;
+    width: 30%;
+    margin: auto;
+    background-color: white;;
+}
+.loginImage{
+    border-radius: 20px;
+}
+.parentSewrvice{
+    overflow: hidden;
+    transition: all;
+}
+
+.serviceImage:hover{
+transform: scale(1.1);
+}
+
