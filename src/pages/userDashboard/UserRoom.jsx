@@ -46,7 +46,7 @@ const UserRoom = () => {
 <div className="child w-100">
 <div className="row my-2 text-center  w-100 m-auto">
         <h1>
-      Welcome to Your Room Vikram Chor
+      Welcome to Your Room
         </h1>
     </div>
   <div className="d-flex justify-content-center align-items-center "

@@ -1,5 +1,7 @@
 import React from 'react'
-
+import vikramC from "../image/purnea img.jpg"
+import vikramB from "../image/hostal img/IMG20240814235239.jpg"
+import vikramD from "../image/hostal img/IMG20240814235257.jpg"
 const Hero = () => {
   return (
     <div> <div>
@@ -27,13 +29,13 @@ Optimize your hostel operations with our smart management solutions, enhancing p
 <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
 <div className="carousel-inner">
 <div className="carousel-item active">
-  <img src="https://images.pexels.com/photos/3186386/pexels-photo-3186386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="d-block w-100 heroImage" alt="..."/>
+  <img src={vikramC} className="d-block w-100 heroImage" alt="..."/>
 </div>
 <div className="carousel-item">
-  <img src="https://images.pexels.com/photos/1181672/pexels-photo-1181672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="d-block w-100 heroImage" alt="..."/>
+  <img src={vikramB} className="d-block w-100 heroImage" alt="..."/>
 </div>
 <div className="carousel-item">
-  <img src="https://images.pexels.com/photos/935948/pexels-photo-935948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="d-block w-100 heroImage" alt="..."/>
+  <img src={vikramD} className="d-block w-100 heroImage" alt="..."/>
 </div>
 </div>
 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
