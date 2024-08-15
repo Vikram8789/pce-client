@@ -1,1 +1,1 @@
-export const server_url="http://localhost:4000/api/v1";
+export const server_url="https://home-backend-aebw.onrender.com/api/v1";
