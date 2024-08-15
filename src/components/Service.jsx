@@ -1,14 +1,17 @@
 import React from 'react'
-const serviceData = [
+import regis from "../image/hostal booking pic.jpg"
+import check from "../image/check att img.avif"
+import gest from "../image/gest img.webp"
+const serviceData =[
     {
-        name: "Room Booking and Reservations",
+        name: "Room Booking and Registration",
         des: "Online booking system with real-time availability and room selection.",
-        url: "https://images.pexels.com/photos/23224828/pexels-photo-23224828/free-photo-of-mother-and-son-reading-book-on-couch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        url: regis
     },
     {
         name: "Check-in and Check-out ",
         des: "Digital check-in/check-out processes, ID verification, and automated notifications.",
-        url: "https://images.pexels.com/photos/8423014/pexels-photo-8423014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        url: check
     },
     {
         name: "Billing and Invoicing",
@@ -18,7 +21,7 @@ const serviceData = [
     {
         name: "Guest Communication",
         des: "Automated emails, SMS notifications, in-app messaging system, and multilingual support.",
-        url: "https://images.pexels.com/photos/194917/pexels-photo-194917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        url: gest
     }
 ];
 
@@ -28,7 +31,7 @@ const Service = () => {
 
         <div className="container  h-100">
         <div className="row text-center pb-3">
-    <h1>Serice</h1>
+    <h1>Service</h1>
     <div className="borderSet">
 
     </div>

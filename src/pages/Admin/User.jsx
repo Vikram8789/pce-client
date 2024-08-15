@@ -1,57 +1,32 @@
-import React from 'react'
+import React ,{useState,useEffect}from 'react'
 import AdminLayout from '../../components/AdminLayout'
 import { IoAddOutline } from "react-icons/io5";
 import { useMoodel } from '../../hooks/useMoodel';
 import UserModel from "../../model/User"
+import { useNavigate } from 'react-router-dom';
+import { server_url } from '../../utils/api';
+import axios from 'axios';
 const User = () => {
-
-    const studentData = [
-        {
-            sNo: 1,
-            studentName: "Vikarm",
-            branch: "Computer Science",
-            sem: "6th",
-            session: "2022-2023",
-            hostelName: "Hostel A",
-            roomNo: "101",
-            roomType: "Single",
-            access: "Full"
-        },
-        {
-            sNo: 2,
-            studentName: "Ravi",
-            branch: "Electrical Engineering",
-            sem: "4th",
-            session: "2022-2023",
-            hostelName: "Hostel B",
-            roomNo: "202",
-            roomType: "Double",
-            access: "Limited"
-        },
-        {
-            sNo: 3,
-            studentName: "Motka",
-            branch: "Mechanical Engineering",
-            sem: "8th",
-            session: "2022-2023",
-            hostelName: "Hostel C",
-            roomNo: "303",
-            roomType: "Single",
-            access: "Full"
-        },
-        {
-            sNo: 4,
-            studentName: "Katihar wali",
-            branch: "Civil Engineering",
-            sem: "2nd",
-            session: "2022-2023",
-            hostelName: "Hostel D",
-            roomNo: "404",
-            roomType: "Double",
-            access: "Full"
-        }
-    ];
+const navigate=useNavigate()
+   
+    const [students,setStudents]=useState([]);
     const {open,handleOpen,handleClose}=useMoodel();
+const [loading,setloading]=useState(false);
+
+    useEffect(()=>{
+      const fetchStudents=async()=>{
+try{
+const {data}=await axios.get(`${server_url}/user`);
+if(data?.success){
+  const studentInfo=data?.user.filter((s)=>s?.userRole!=="teacher")
+  setStudents(studentInfo)
+}
+}catch(e){
+  console.log(e)
+}
+      }
+      fetchStudents()
+    },[loading])
   return (
  
     <AdminLayout>
@@ -64,7 +39,6 @@ const User = () => {
                >
                    <IoAddOutline/> Add Students
                 </button>
-                <input type="search" className='form-control w-75' placeholder='search...'/>
                </div>
             </div>
             <hr />
@@ -75,30 +49,40 @@ const User = () => {
     <tr>
       <th scope="col">S.No</th>
       <th scope="col">Student Name</th>
-      <th scope="col">Branch</th>
-      <th scope="col">Sem</th>
-      <th scope="col">Session</th>
+      <th scope="col">Reg.No</th>
+      <th scope="col">password</th>
+   
       <th scope="col">Hostel Name</th>
-      <th scope="col">Room No</th>
+      <th scope="col">Floor</th>
       <th scope="col">Room Type</th>
-      <th scope="col">Acess</th>
+      <th scope="col">Room Number</th>
+
+      <th scope="col">View</th>
+      
+
 
 
 
     </tr>
   </thead>
   <tbody>
-  {studentData.map(student => (
-            <tr key={student.sNo}>
-              <td>{student.sNo}</td>
-              <td>{student.studentName}</td>
-              <td>{student.branch}</td>
-              <td>{student.sem}</td>
-              <td>{student.session}</td>
+  
+  {students.map((student,i) => (
+            <tr key={student?._id}>
+              <td>{i+1}</td>
+              <td>{student.userName}</td>
+              <td>{student.regNo}</td>
+              <td>{student.password}</td>
+             
               <td>{student.hostelName}</td>
-              <td>{student.roomNo}</td>
+              <td>{student.floor}</td>
               <td>{student.roomType}</td>
-              <td>{student.access}</td>
+              <td>{student.roomNo}</td>
+
+              <td
+              style={{cursor:"pointer",color:"green"}}
+              onClick={()=>navigate("/user-room")}
+              >Click</td>
             </tr>
           ))}
     
@@ -111,6 +95,7 @@ const User = () => {
     <UserModel
     handleClose={handleClose}
     open={open}
+    loading={loading} setloading={setloading}
     />
     </AdminLayout>
   )

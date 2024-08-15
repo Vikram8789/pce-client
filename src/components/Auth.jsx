@@ -1,27 +1,62 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import logPic from "../image/IMG20240814235239.jpg"
+import { server_url } from '../utils/api';
+import axios from 'axios';
 
 const Auth = () => {
   const [name,setName]=useState("");
   const [password,setPassword]=useState("");
 const naviagte=useNavigate()
-  const handleSubmit=()=>{
+  const handleSubmit=async()=>{
 if(!name){
-  console.log("name is necessary")
+  console.log("userName is necessary");
+  alert("userName is necessary")
   return;
 }
 if(!password){
-  console.log("password is necessary")
+  console.log("password is necessary");
+  alert("password is necessary")
   return;
 
 }
 
-console.log(name,password);
-naviagte("/user-room");
+try{
+const {data}=await axios.post(`${server_url}/user/login`,{
+  regNo:name
+  
+  ,password:password
+
+},{
+  headers:{
+    "Content-Type":"application/json",
+    "Authorization":localStorage.getItem("token")
+}
+});
+if(data.success){
+  alert(`${data.message}`);
+  console.log(data?.user?.userRole)
+  if(data?.user?.userRole==="student"){
+    naviagte("/user-room");
+  }else{
+    naviagte("/admin-user");
+
+  }
+  
+
+}else{
+  alert(`${data.message}`)
+}
+}catch(e){
+  console.log(e)
+  alert(e.response?.data?.message || "An error occurred");
+
+}
+
   }
 
   return (
-<div className="bg-dark w-100">
+<div className="bg-dark vv">
 <div className="container bg-dark" id="auth">
 <div className="row text-center py-5">
     <h1>Login</h1>
@@ -30,12 +65,10 @@ naviagte("/user-room");
     </div>
 
 </div>
-<div className="row h-100">
-    <div className="col-md-6">
-<img src="https://images.pexels.com/photos/1181325/pexels-photo-1181325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='img-fluid loginImage'/>
-    </div>
-    <div className="col-md-6">
-   <div className="h-50 d-flex flex-column justify-content-center align item center">
+<div className="mainContainerDiv ">
+    
+    <div className="two w-50 m-auto">
+   <div className=" d-flex flex-column justify-content-center align item center">
   
    <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label text-white">Email address</label>

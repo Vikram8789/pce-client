@@ -9,7 +9,7 @@ const Home = () => {
    <>
    <Layout>
    <Hero/>
-   <Auth/>
+   {/* <Auth/> */}
    <Service/>
    </Layout>
   

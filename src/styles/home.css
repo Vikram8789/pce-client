@@ -31,7 +31,17 @@
 }
 .loginImage{
     border-radius: 20px;
+    /* height: 60%;
+    width: 100%; */
+
 }
+.mainContainerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .parentSewrvice{
     overflow: hidden;
     transition: all;

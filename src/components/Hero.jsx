@@ -10,16 +10,18 @@ const Hero = () => {
 <div className="col-md-6 h-100">
 <div className="descriptionHero h-100  flex-column d-flex justify-content-center align-items-center">
 <div className="contant">
-<h1>HostelHub
+<h1>Smart Hostel
     <br />
     
-Centralized Management</h1>
+Management System</h1>
 <h4>
-Smart Management
-Smart solutions for better management.
+Smart Hostel Management System is a Web-based application
+that allows the user to monitor.
 </h4>
 <p>
-Optimize your hostel operations with our smart management solutions, enhancing productivity.
+control their Hostel Room using their 
+webpage. Proposed system requires a micro-SD card with an OS for the 
+Raspberry Pi
 </p>
 </div>
 </div>

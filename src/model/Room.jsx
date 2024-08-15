@@ -98,7 +98,7 @@ const Room = (
 onChange={(e) => setHostelName(e.target.value)}
 >
   <option selected>Open this select menu</option>
-  <option value="1">CV Raman Hostel</option>
+  <option value="1">PCE HOSTAL</option>
   <option value="2">APJ Hostel</option>
   <option value="3">Mother Tresa</option>
 </select>
